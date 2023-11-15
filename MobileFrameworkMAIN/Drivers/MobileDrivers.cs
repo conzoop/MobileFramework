@@ -48,10 +48,7 @@ namespace MobileFrameworkMAIN.Drivers
             {
                 case "App:Calculator":
                     appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, apkPath + "\\Calculator_8.4.1 (520193683)_Apkpure.apk");
-                    break;
-                case "App:Youtube":
-                    appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, apkPath + "\\YouTube_18.35.35_Apkpure.apk");
-                    break;
+                    break;               
                 case "App:Firefox":
                     appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, apkPath + "\\fenix-100.0.0-beta.1.multi.android-arm64-v8a.apk");
                     break;

@@ -34,9 +34,6 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         {
             firefox.NavigateByUrl(url);
 
-
-            //firefox.findelement().sendkeys();
-
         }
 
         [When(@"I validate I am on the homepage")]
@@ -69,6 +66,8 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         [When(@"I click The Legend of Zelda Tears of the Kingdom")]
         public void ClickIntoZelda()
         {
+            Thread.Sleep(30000);
+            firefox.Scroll();
             firefox.ClickItem();
         }
 
@@ -76,12 +75,14 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         [Then(@"I validate I am on the Zelda Tears of the Kingdom Product Page")]
         public void ValidateZeldaProductPage()
         {
-            firefox.ValidateZeldaPage("The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch");
+            firefox.ValidateZeldaPage("The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch ");
         }
 
         [When(@"I add the product to my cart")]
         public void AddProductTocart()
         {
+            Thread.Sleep(30000);
+            firefox.Scroll();
             firefox.AddToCart();
         }
 
