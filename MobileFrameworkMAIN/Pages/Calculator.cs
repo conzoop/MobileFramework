@@ -14,7 +14,7 @@ namespace ConnorGriffithsMobileFrameworkFinal.HomePage
     {
         private readonly AndroidDriver<AndroidElement> _driver;
 
-        #region
+        #region Elements
         private By nineButton => By.XPath("//android.widget.ImageButton[@content-desc=\"9\"]");
         private By fourButton => By.XPath("//android.widget.ImageButton[@content-desc=\"4\"]");
         private By eightButton => By.XPath("//android.widget.ImageButton[@content-desc=\"8\"]");
@@ -25,16 +25,16 @@ namespace ConnorGriffithsMobileFrameworkFinal.HomePage
 
         private By divideButton => By.XPath("//android.widget.ImageButton[@content-desc='divide']");
 
-        private By additionButton => By.XPath("//android.widget.ImageButton[@content-desc='addition']");
+        private By additionButton => By.XPath("//android.widget.ImageButton[@content-desc='plus']");
 
-        private By subtractButton => By.XPath("//android.widget.ImageButton[@content-desc='subtract']");
+        private By subtractButton => By.XPath("//android.widget.ImageButton[@content-desc='minus']");
 
         private By equalsButton => By.XPath("//android.widget.ImageButton[@content-desc='equals']");
 
         private By powerButton => By.XPath("//android.widget.ImageButton[@content-desc='power']");
 
         private By resultBox => By.XPath("//*[@resource-id='com.google.android.calculator:id/result_preview']");
-        #endregion
+        #endregion 
 
         public Calculator(AndroidDriver<AndroidElement> driver)
         {

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
@@ -9,11 +10,11 @@ using OpenQA.Selenium.Chrome;
 
 namespace MobileFrameworkMAIN.Drivers
 {
-    public static class MobileDriver
+    public static class MobileDriver 
     {
         private static AndroidDriver<AndroidElement> _androidDriver;
         private static string apkPath = Path.Combine(Path.GetDirectoryName(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.FullName), "APK"); //gets directory name etc.
-
+        private static string screenshotPath = ("\\ROQ Framework-final\\MobileFrameworkMAIN\\MobileFrameworkMAIN\\MobileScreenshots");
 
 
         //private readonly AppiumDriver<Drivers> appiumDriver;
@@ -28,7 +29,7 @@ namespace MobileFrameworkMAIN.Drivers
             return _androidDriver;
         }
 
-
+        [BeforeScenario]
         public static AndroidDriver<AndroidElement> InitializeAndroidDriver()
         {
             _androidDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), GetAppiumOptions());
@@ -39,7 +40,7 @@ namespace MobileFrameworkMAIN.Drivers
 
         private static AppiumOptions GetAppiumOptions()
         {
-            var nunitCategories = TestContext.CurrentContext.Test?.Properties["Category"]; //this grabs stuff from nunit- var/list caled cat- returns list of test cats from ruunnning tests
+            var nunitCategories = TestContext.CurrentContext.Test?.Properties["Category"]; 
             var appNameTag = nunitCategories.OfType<string>().FirstOrDefault(stringToCheck => stringToCheck.Contains("App:"));
 
             AppiumOptions appiumOptions = new AppiumOptions();
@@ -69,6 +70,17 @@ namespace MobileFrameworkMAIN.Drivers
                 _androidDriver.Quit();
                 _androidDriver = null;
             }
+        }
+       
+
+        [AfterScenario]
+        public static void CloseDriverAfterTest()
+        {
+            
+            _androidDriver.Quit();
+
+
+          
         }
     }
 }

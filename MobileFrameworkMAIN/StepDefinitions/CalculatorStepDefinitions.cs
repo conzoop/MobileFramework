@@ -99,10 +99,10 @@ namespace MobileFrameworkMAIN.StepDefinitions
             homepage.Results(4);
         }
 
-        [Then("I validate the answer is 24")]
+        [Then("I validate the answer is 32")]
         public void ValidateAnswerMultiplication()
         {
-            homepage.Results(24);
+            homepage.Results(32);
         }
 
 

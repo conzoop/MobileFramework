@@ -7,6 +7,8 @@ using MobileFrameworkMAIN.Drivers;
 using OpenQA.Selenium;
 using BoDi;
 using TechTalk.SpecFlow;
+using NUnit.Framework;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace MobileFrameworkMAIN.Hooks
 {
@@ -14,13 +16,17 @@ namespace MobileFrameworkMAIN.Hooks
     public class Hooks
     {
         private readonly IObjectContainer _objectContainer;
-        private AndroidDriver<AndroidElement> _driver;
+        private static AndroidDriver<AndroidElement> _driver;
+        private readonly ScenarioContext _scenarioContext;
 
-        //private readonly AppiumDriver<> _appiumDriver;
+        public static string SolutionDir = Path.GetDirectoryName(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.Parent.FullName);
+        public static string ScreenshotPath = Path.Combine(SolutionDir, "Screenshots");
 
-        public Hooks(IObjectContainer objectContainer)
+
+        public Hooks(IObjectContainer objectContainer, ScenarioContext scenarioContext)
         {
             _objectContainer = objectContainer;
+            _scenarioContext = scenarioContext;
         }
 
         [BeforeScenario]
@@ -30,6 +36,16 @@ namespace MobileFrameworkMAIN.Hooks
             _objectContainer.RegisterInstanceAs<IWebDriver>(_driver);
         }
 
+        [AfterScenario]
+        public void Screenshot()
+        {
+            if (_scenarioContext.TestError != null)
+            {
+                Screenshot screenshot = _driver.GetScreenshot();
+                string screenshotLocation = Path.Combine(ScreenshotPath, $"{_scenarioContext.ScenarioInfo.Title}.png"); 
+                screenshot.SaveAsFile(screenshotLocation, ScreenshotImageFormat.Png);
+            }
+        }
         [AfterScenario]
         public void AfterScenario()
         {

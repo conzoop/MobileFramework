@@ -67,7 +67,6 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         public void ClickIntoZelda()
         {
             Thread.Sleep(30000);
-            firefox.Scroll();
             firefox.ClickItem();
         }
 
@@ -82,20 +81,38 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         public void AddProductTocart()
         {
             Thread.Sleep(30000);
-            firefox.Scroll();
+            firefox.ScrollDown();
             firefox.AddToCart();
         }
 
         [When(@"I go to my cart")]
         public void GoToCart()
         {
+            Thread.Sleep(10000);
             firefox.GoToCart();
+        }
+
+        [Then(@"I validate the item has been added to my basket")]
+
+        public void ValidateAddedtoBasket()
+        {
+            Thread.Sleep(10000);
+            firefox.AddedToBasket();
+        }
+
+        [Then(@"I validate the item has been removed from my basket")]
+
+        public void ValidateRemovedFromBasket()
+        {
+            Thread.Sleep(10000);
+            firefox.ValidateRemovedFromCart();
         }
 
         [Then(@"I validate Zelda Tears of the Kingdom is in my cart")]
 
         public void ValidateCart()
         {
+            Thread.Sleep(10000);
             firefox.ValidateCart("The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch");
         }
 
