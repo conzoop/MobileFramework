@@ -22,7 +22,6 @@ namespace MobileFrameworkMAIN.Hooks
         public static string SolutionDir = Path.GetDirectoryName(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.Parent.FullName);
         public static string ScreenshotPath = Path.Combine(SolutionDir, "Screenshots");
 
-
         public Hooks(IObjectContainer objectContainer, ScenarioContext scenarioContext)
         {
             _objectContainer = objectContainer;
@@ -42,7 +41,7 @@ namespace MobileFrameworkMAIN.Hooks
             if (_scenarioContext.TestError != null)
             {
                 Screenshot screenshot = _driver.GetScreenshot();
-                string screenshotLocation = Path.Combine(ScreenshotPath, $"{_scenarioContext.ScenarioInfo.Title}.png"); 
+                string screenshotLocation = Path.Combine(ScreenshotPath, $"{_scenarioContext.ScenarioInfo.Title}.png");
                 screenshot.SaveAsFile(screenshotLocation, ScreenshotImageFormat.Png);
             }
         }

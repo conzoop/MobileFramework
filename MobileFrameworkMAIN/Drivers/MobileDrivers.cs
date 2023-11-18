@@ -10,22 +10,13 @@ using OpenQA.Selenium.Chrome;
 
 namespace MobileFrameworkMAIN.Drivers
 {
-    public static class MobileDriver 
+    public static class MobileDriver
     {
         private static AndroidDriver<AndroidElement> _androidDriver;
-        private static string apkPath = Path.Combine(Path.GetDirectoryName(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.FullName), "APK"); //gets directory name etc.
-        private static string screenshotPath = ("\\ROQ Framework-final\\MobileFrameworkMAIN\\MobileFrameworkMAIN\\MobileScreenshots");
-
-
-        //private readonly AppiumDriver<Drivers> appiumDriver;
+        private static string apkPath = Path.Combine(Path.GetDirectoryName(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.FullName), "APK"); 
 
         public static AndroidDriver<AndroidElement> GetAndroidDriver()
         {
-        //    //if (_androidDriver == null)
-        //    {
-        //        InitializeAndroidDriver();
-
-        //    }
             return _androidDriver;
         }
 
@@ -36,11 +27,10 @@ namespace MobileFrameworkMAIN.Drivers
 
             return _androidDriver;
         }
-        
 
         private static AppiumOptions GetAppiumOptions()
         {
-            var nunitCategories = TestContext.CurrentContext.Test?.Properties["Category"]; 
+            var nunitCategories = TestContext.CurrentContext.Test?.Properties["Category"];
             var appNameTag = nunitCategories.OfType<string>().FirstOrDefault(stringToCheck => stringToCheck.Contains("App:"));
 
             AppiumOptions appiumOptions = new AppiumOptions();
@@ -49,7 +39,7 @@ namespace MobileFrameworkMAIN.Drivers
             {
                 case "App:Calculator":
                     appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, apkPath + "\\Calculator_8.4.1 (520193683)_Apkpure.apk");
-                    break;               
+                    break;
                 case "App:Firefox":
                     appiumOptions.AddAdditionalCapability(MobileCapabilityType.App, apkPath + "\\fenix-100.0.0-beta.1.multi.android-arm64-v8a.apk");
                     break;
@@ -71,16 +61,11 @@ namespace MobileFrameworkMAIN.Drivers
                 _androidDriver = null;
             }
         }
-       
 
         [AfterScenario]
         public static void CloseDriverAfterTest()
         {
-            
             _androidDriver.Quit();
-
-
-          
         }
     }
 }

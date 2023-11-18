@@ -14,7 +14,6 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 {
     public class Firefox
     {
-
         private readonly AndroidDriver<AndroidElement> _driver;
 
         public Firefox(AndroidDriver<AndroidElement> driver)
@@ -29,19 +28,14 @@ namespace MobileFrameworkMAIN.Pages.Firefox
         private By basicsPageIcon => By.XPath("//android.view.View[@content-desc=\"Amazon Basics Logo\"]/android.widget.Image");
         private By searchButton => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.widget.Button");
         private By productOne => By.XPath("(//android.view.View[@content-desc=\"The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch\"])[2]/android.view.View");
-
         private By productHeader => By.XPath("(//android.view.View[@content-desc=\"The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch\"])[1]/android.view.View");
         private By addToCartButton => By.XPath("//android.view.View[@resource-id='addToCart_feature_div']");
-
         private By CartButton => By.XPath("//android.view.View[@content-desc=\"Cart\"]/android.view.View/android.view.View");
         private By CartContents => By.XPath("//android.view.View[@content-desc=\"The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch\"]");
         private By removeFromCartButton => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[3]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.ListView/android.view.View[1]/android.view.View/android.widget.Image");
         private By emptyCart => By.XPath("//android.view.View[@content-desc=\"Your Amazon Cart is empty\"]/android.view.View");
-
         private By removedFromBasket => By.XPath("//android.view.View[@content-desc=\"The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch\"]/android.view.View");
-
         private By addedToBasket => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View[3]");
-
         private static By searchBar => By.ClassName("android.widget.EditText");
         private static By booksPage => By.XPath("Books");
         #endregion
@@ -76,7 +70,6 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 
         public void ClickItem()
         {
-            //Thread.Sleep(25000);
             _driver.FindElement(productOne).Click();
             _driver.FindElement(productOne).Click();
 
@@ -84,7 +77,7 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 
         public void ValidateZeldaPage(string expectedProduct)
         {
-            
+
             Thread.Sleep(20000);
             _driver.FindElement(productHeader);
             var Test = _driver.FindElement(productHeader).Text;
@@ -94,7 +87,7 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 
         public void AddToCart()
         {
-            
+
             _driver.FindElement(addToCartButton).Click();
         }
 
@@ -111,7 +104,7 @@ namespace MobileFrameworkMAIN.Pages.Firefox
         public void AddedToBasket()
         {
             _driver.FindElement(addedToBasket);
-            
+
         }
 
         public void ValidateCart(string expectedProduct)

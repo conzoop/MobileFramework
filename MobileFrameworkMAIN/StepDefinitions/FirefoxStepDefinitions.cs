@@ -19,15 +19,12 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         private readonly AndroidDriver<AndroidElement> _driver;
         private Firefox firefox;
 
-
         public FirefoxStepDefinitions(AndroidDriver<AndroidElement> driver)
         {
             _driver = driver;
             firefox = new Firefox(driver);
 
         }
-
-
 
         [Given(@"I am on ""(.*)""")]
         public void GivenIAmOn(string url)
@@ -41,7 +38,7 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         public void HomePageValidation()
         {
             firefox.ValidateHomePage();
-                    }
+        }
 
         [When(@"I go to Amazon Basics")]
         public void NavigatetoBasics()
@@ -133,8 +130,6 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         {
             firefox.ValidateEmptyCart("Your Amazon Cart is empty ");
         }
-
-
 
     }
 }

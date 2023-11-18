@@ -16,7 +16,9 @@ namespace ConnorGriffithsMobileFrameworkFinal.HomePage
 
         #region Elements
         private By nineButton => By.XPath("//android.widget.ImageButton[@content-desc=\"9\"]");
+
         private By fourButton => By.XPath("//android.widget.ImageButton[@content-desc=\"4\"]");
+
         private By eightButton => By.XPath("//android.widget.ImageButton[@content-desc=\"8\"]");
 
         private By twoButton => By.XPath("//android.widget.ImageButton[@content-desc=\"2\"]");
@@ -46,12 +48,12 @@ namespace ConnorGriffithsMobileFrameworkFinal.HomePage
             _driver.FindElement(nineButton).Click();
 
         }
-
         public void ClickNumberFour()
         {
             _driver.FindElement(fourButton).Click();
 
         }
+
         public void ClickNumberEight()
         {
             _driver.FindElement(eightButton).Click();
@@ -89,6 +91,7 @@ namespace ConnorGriffithsMobileFrameworkFinal.HomePage
         {
             _driver.FindElement(powerButton).Click();
         }
+
         public void ClickEquals()
         {
             _driver.FindElement(equalsButton).Click();
@@ -99,8 +102,8 @@ namespace ConnorGriffithsMobileFrameworkFinal.HomePage
             _driver.FindElement(resultBox);
             var Test = _driver.FindElement(resultBox).Text;
             int ActualResult = int.Parse(_driver.FindElement(resultBox).Text);
-           Assert.That(ActualResult, Is.EqualTo(expectedResult),$"The result {ActualResult} is not equal to the expected result: {expectedResult}");
-            
+            Assert.That(ActualResult, Is.EqualTo(expectedResult), $"The result {ActualResult} is not equal to the expected result: {expectedResult}");
+
         }
     }
 }

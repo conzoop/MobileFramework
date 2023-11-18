@@ -17,18 +17,17 @@ namespace MobileFrameworkMAIN.StepDefinitions
             homepage = new Calculator(driver);
         }
 
-
         [Given("I click on the number Nine")]
         public void ClickNumberNine()
         {
             homepage.ClickNumberNine();
         }
-    
+
         [When("I click the number Two")]
         public void ClickNumberTwo()
         {
             homepage.ClickNumberTwo();
-            
+
         }
         [When("I click the number Four")]
         public void ClickNumberFour()
@@ -104,9 +103,6 @@ namespace MobileFrameworkMAIN.StepDefinitions
         {
             homepage.Results(32);
         }
-
-
-
 
     }
 }
