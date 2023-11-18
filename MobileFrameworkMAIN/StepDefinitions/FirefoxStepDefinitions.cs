@@ -38,7 +38,6 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
 
         [When(@"I validate I am on the homepage")]
         [Then(@"I validate I am on the homepage")]
-
         public void HomePageValidation()
         {
             firefox.ValidateHomePage();
@@ -48,6 +47,12 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         public void NavigatetoBasics()
         {
             firefox.GoToAmazonbasics();
+        }
+
+        [Then(@"I go to Amazon Books")]
+        public void NavigatetoBBooks()
+        {
+            firefox.GoToBooks();
         }
 
         [Then(@"I validate I am on the Amazon Basics Page")]

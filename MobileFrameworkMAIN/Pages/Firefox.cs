@@ -27,13 +27,10 @@ namespace MobileFrameworkMAIN.Pages.Firefox
         private By homeIcon => By.XPath("//android.view.View[@content-desc=\"Amazon\"]/android.view.View");
         private By basicsLink => By.XPath("//android.view.View[@content-desc=\"Amazon Basics\"]/android.view.View");
         private By basicsPageIcon => By.XPath("//android.view.View[@content-desc=\"Amazon Basics Logo\"]/android.widget.Image");
-        //private By searchBar => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.EditText");
         private By searchButton => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.widget.Button");
         private By productOne => By.XPath("(//android.view.View[@content-desc=\"The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch\"])[2]/android.view.View");
-        //private By productOne => By.XPath("//android.view.View[@resource-id='addToCart_feature_div']");
 
         private By productHeader => By.XPath("(//android.view.View[@content-desc=\"The Legend of Zelda: Tears of the Kingdom - For Nintendo Switch\"])[1]/android.view.View");
-        //private By addToCartButton => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[7]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View/android.view.View/android.widget.Button");
         private By addToCartButton => By.XPath("//android.view.View[@resource-id='addToCart_feature_div']");
 
         private By CartButton => By.XPath("//android.view.View[@content-desc=\"Cart\"]/android.view.View/android.view.View");
@@ -45,8 +42,8 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 
         private By addedToBasket => By.XPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View[3]");
 
-        //private By searchBar => By.XPath("//*[@resource-id='org.mozilla.firefox:id/nav-search-keywords']");
         private static By searchBar => By.ClassName("android.widget.EditText");
+        private static By booksPage => By.XPath("Books");
         #endregion
 
         public void NavigateByUrl(string url)
@@ -101,6 +98,11 @@ namespace MobileFrameworkMAIN.Pages.Firefox
             _driver.FindElement(addToCartButton).Click();
         }
 
+        public void GoToBooks()
+        {
+            _driver.FindElement(booksPage).Click();
+
+        }
         public void GoToCart()
         {
             _driver.FindElement(CartButton).Click();

@@ -34,3 +34,10 @@ Scenario: Division
 	When I click Divide
 	And I click the number Two
 	Then I validate the answer is 4
+
+	@App:Calculator
+Scenario: DivisionNegative
+	Given I click the number Eight
+	When I click Divide
+	And I click the number Two
+	Then I validate the answer is 6
