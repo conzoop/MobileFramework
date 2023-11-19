@@ -1,4 +1,5 @@
-using ConnorGriffithsMobileFrameworkFinal.HomePage;
+using ConnorGriffithsMobileFrameworkFinal.Calculator;
+using ConnorGriffithsMobileFrameworkFinal.Calculator;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium.Android;
 
@@ -9,30 +10,30 @@ namespace MobileFrameworkMAIN.StepDefinitions
     public class CalculatorStepDefinitions
     {
         private readonly AndroidDriver<AndroidElement> _driver;
-        private Calculator homepage;
+        private CalculatorPage calculator;
 
         public CalculatorStepDefinitions(AndroidDriver<AndroidElement> driver)
         {
             _driver = driver;
-            homepage = new Calculator(driver);
+            calculator = new CalculatorPage(driver);
         }
 
         [Given("I click on the number Nine")]
         public void ClickNumberNine()
         {
-            homepage.ClickNumberNine();
+            calculator.ClickNumberNine();
         }
 
         [When("I click the number Two")]
         public void ClickNumberTwo()
         {
-            homepage.ClickNumberTwo();
+            calculator.ClickNumberTwo();
 
         }
         [When("I click the number Four")]
         public void ClickNumberFour()
         {
-            homepage.ClickNumberFour();
+            calculator.ClickNumberFour();
 
         }
 
@@ -40,69 +41,68 @@ namespace MobileFrameworkMAIN.StepDefinitions
         [When("I click the number Eight")]
         public void ClickNumberEight()
         {
-            homepage.ClickNumberEight();
+            calculator.ClickNumberEight();
 
         }
 
         [When("I click Divide")]
         public void ClickDivide()
         {
-            homepage.ClickDivide();
+            calculator.ClickDivide();
         }
 
         [When("I click add")]
         public void ClickAdd()
         {
-            homepage.ClickAdd();
+            calculator.ClickAdd();
         }
 
         [When("I click Subtract")]
         public void ClickSubtract()
         {
-            homepage.ClickSubtract();
+            calculator.ClickSubtract();
         }
 
         [When("I click Multiply")]
         public void ClickMultiply()
         {
-            homepage.ClickMultiply();
+            calculator.ClickMultiply();
         }
 
         [When("I click to the power of")]
         public void ClickPowerOf()
         {
-            homepage.ClickToThePowerOf();
+            calculator.ClickToThePowerOf();
         }
 
         [Then("I validate the answer is 10")]
         public void ValidateAnswerAddition()
         {
-            homepage.Results(10);
+            calculator.Results(10);
         }
 
         [Then("I validate the answer is 81")]
         public void ValidateAnswerPower()
         {
-            homepage.Results(81);
+            calculator.Results(81);
         }
 
         [Then("I validate the answer is 6")]
         public void ValidateAnswerSubtraction()
         {
-            homepage.Results(6);
+            calculator.Results(6);
         }
 
         [Then("I validate the answer is 4")]
         public void ValidateAnswerDivision()
         {
-            homepage.Results(4);
+            calculator.Results(4);
         }
 
         [Then("I validate the answer is 32")]
         public void ValidateAnswerMultiplication()
         {
-            homepage.Results(32);
+            calculator.Results(32);
         }
-
     }
 }

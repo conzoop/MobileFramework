@@ -1,4 +1,4 @@
-﻿using ConnorGriffithsMobileFrameworkFinal.HomePage;
+﻿using ConnorGriffithsMobileFrameworkFinal.Calculator;
 using MobileFrameworkMAIN.Pages;
 using OpenQA.Selenium.Appium.Android;
 using System;
@@ -130,7 +130,6 @@ namespace MobileFrameworkMAIN.StepDefinitions.FirefoxStepDefinitions
         {
             firefox.ValidateEmptyCart("Your Amazon Cart is empty ");
         }
-
     }
 }
 

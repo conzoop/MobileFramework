@@ -18,7 +18,6 @@ namespace MobileFrameworkMAIN.Hooks
         private readonly IObjectContainer _objectContainer;
         private static AndroidDriver<AndroidElement> _driver;
         private readonly ScenarioContext _scenarioContext;
-
         public static string SolutionDir = Path.GetDirectoryName(Directory.GetParent(TestContext.CurrentContext.TestDirectory).Parent.Parent.FullName);
         public static string ScreenshotPath = Path.Combine(SolutionDir, "Screenshots");
 
@@ -45,6 +44,7 @@ namespace MobileFrameworkMAIN.Hooks
                 screenshot.SaveAsFile(screenshotLocation, ScreenshotImageFormat.Png);
             }
         }
+
         [AfterScenario]
         public void AfterScenario()
         {

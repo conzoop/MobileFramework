@@ -55,10 +55,12 @@ namespace MobileFrameworkMAIN.Pages.Firefox
             Thread.Sleep(30000);
             _driver.FindElement(basicsLink).Click();
         }
+
         public void ValidateBasicsPage()
         {
             Assert.IsNotNull(basicsPageIcon);
         }
+
         public void SearchFor()
         {
             Thread.Sleep(40000);
@@ -145,7 +147,6 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 
             TouchAction touchAction = new TouchAction(_driver);
             touchAction.Press(startX, startY).Wait(2000).MoveTo(startX, endY).Release().Perform();
-
         }
 
         public void ScrollUp()
@@ -157,9 +158,7 @@ namespace MobileFrameworkMAIN.Pages.Firefox
 
             TouchAction touchAction = new TouchAction(_driver);
             touchAction.Press(startX, startY).Wait(2000).MoveTo(startX, endY).Release().Perform();
-
         }
-
     }
 }
 
